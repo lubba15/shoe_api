@@ -134,8 +134,6 @@ $(document).ready(function() {
       })
       window.location.reload()
     }
-
-
     // .fail(function(jqXHR) {
     //    console.log(jqXHR);
     // )
