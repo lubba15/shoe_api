@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="css/shoe.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  <title>Shoe Catalogue Api</title>
+</head>
+<h1> Shoe Catalogue Api</h1>
+
+<body>
+  <div class="brandAndSize">
+  <script class="dropDownTamplate" type="text/handlebars-x">
+    <option value="" disabled selected> select option </option>
+    {{#each shoeData}}
+    <option>{{this}}</option>
+    {{/each}}
+  </script>
+    Brand: <select class="brands"></select>
+    Size: <select class="sizes"></select>
+    <!-- Colors: <select class="colors"></select> -->
+  </div>
+  <div class="msg"></div>
+  <button id="allStock">All Stock</button>
+
+  <script id="tableTamplate" type="text/handlebars-x">
+    <h2>Available stock</h2>
+    <table style = 'width:40%' border = '2px'>
+      <tr>
+        <th>Brand</th>
+        <th>Color</th>
+        <th>Size</th>
+        <th>Price</th>
+        <th>In stock</th>
+        <th>Buy</th>
+      </tr>
+      {{#each shoe}}
+      {{#if quantity}}
+      <tr>
+        <td>{{brand}}</td>
+        <td>{{color}}</td>
+        <td>{{size}}</td>
+        <td>R{{price}}</td>
+        <td>{{quantity}}</td>
+        <td><button  id='{{_id}}'>Buy</button></td>
+      </tr>
+      {{/if}}
+      {{/each}}
+    </table>
+  </script>
+  <div id="display"></div>
+  </br>
+  <h3>Add Stock</h3>
+  <form method="post">
+      <label for="Brand">Brand:</label>
+      <input type="text" class="Brands" placeholder="type brand name" required></input>
+      <label for="name">Color:</label>
+      <input type="text" class="Colors" placeholder="type color" required></input>
+      <label for="name">Size:</label>
+      <input type="number" class="Sizes" placeholder="type size" required></input>
+      <label for="name">Price:</label>
+      <input type="number" class="Prices" placeholder="type a price" required></input>
+      <label for="name">Quantity:</label>
+      <input type="number" class="Quantity" placeholder="Add stock" required></input>
+      <br><br>
+  </form>
+  <button id="addButton"> Add Stock</button>
+  <div class="message"></div>
+  <div class="Shoes">
+  </div>
+
+</body>
+<script type="text/javascript" src="shoe.js"></script>
+
+</html>

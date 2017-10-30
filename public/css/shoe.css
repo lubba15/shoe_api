@@ -1,0 +1,53 @@
+body {
+  font-style: italic;
+  margin-left: 23px;
+  background-color: lightgrey;
+}
+
+h1 {
+  font-size: 44px;
+  margin-left: 371px;
+}
+
+h2 {
+  font-size: 30px;
+  margin-top: 8px;
+  margin-left: 465px;
+}
+
+h3 {
+  font-size: 30px;
+  margin-left: 489px;
+}
+
+.brandAndSize {
+  margin-left: 401px;
+}
+
+table {
+  margin-left: 325px;
+}
+
+.name {
+  margin-left: 72px;
+}
+
+#addButton {
+  margin-left: 510px;
+  margin-top: 7px;
+}
+
+#allStock {
+  margin-left: 516px;
+  margin-top: 26px;
+}
+
+.message {
+  margin-left: 378px;
+  margin-top: 12px;
+}
+
+.msg {
+  margin-left: 458px;
+  margin-top: 26px;
+}
