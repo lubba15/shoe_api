@@ -1,21 +1,32 @@
 {
   "name": "shoe_api",
   "version": "1.0.0",
-  "description": "",
+  "description": "shoe_api",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "body-parser":"*",
-    "express": "*",
-    "express-flash":"*",
-    "express-handlebars":"*",
-    "express-session":"*",
-    "mongoose": "*",
-    "express": "^4.13.4"
-  }
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.5",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lubba15/shoe_api.git"
+  },
+  "author": "lubabalo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lubba15/shoe_api/issues"
+  },
+  "homepage": "https://github.com/lubba15/shoe_api#readme"
 }
