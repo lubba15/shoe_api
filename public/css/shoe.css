@@ -6,26 +6,37 @@ body {
 
 h1 {
   font-size: 44px;
-  margin-left: 371px;
+  margin-left: 273px;
+}
+.brandAndSize {
+  margin-left: 301px;
 }
 
 h2 {
   font-size: 30px;
   margin-top: 8px;
-  margin-left: 465px;
+  margin-left: 361px;
+}
+
+.Shoes {
+  margin-left: 333px;
+  display: none;
+  margin-top: 34px;
+}
+#allStock {
+  margin-left: 428px;
+  margin-top: 30px;
 }
 
 h3 {
-  font-size: 30px;
-  margin-left: 489px;
+  font-size: 25px;
+  margin-top: 30px;
+  margin-left: 70px;
 }
 
-.brandAndSize {
-  margin-left: 401px;
-}
 
-table {
-  margin-left: 325px;
+#display {
+  margin-left: 257px;
 }
 
 .name {
@@ -33,21 +44,21 @@ table {
 }
 
 #addButton {
-  margin-left: 510px;
-  margin-top: 7px;
+  margin-left: 97px;
 }
 
-#allStock {
-  margin-left: 516px;
-  margin-top: 26px;
-}
 
 .message {
-  margin-left: 378px;
+  margin-left: 268px;
   margin-top: 12px;
 }
 
 .msg {
   margin-left: 458px;
   margin-top: 26px;
+}
+.Shoes{
+}
+.btn{
+    margin-left: 410px
 }

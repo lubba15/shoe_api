@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -21,11 +22,10 @@
     Size: <select class="sizes"></select>
     <!-- Colors: <select class="colors"></select> -->
   </div>
-  <div class="msg"></div>
   <button id="allStock">All Stock</button>
 
+  <h2>Available stock</h2>
   <script id="tableTamplate" type="text/handlebars-x">
-    <h2>Available stock</h2>
     <table style = 'width:40%' border = '2px'>
       <tr>
         <th>Brand</th>
@@ -51,25 +51,26 @@
   </script>
   <div id="display"></div>
   </br>
-  <h3>Add Stock</h3>
-  <form method="post">
+<button class="btn" onclick="show()">Update Stock</button>
+  <div class="Shoes">
+    <h3>Add Stock</h3>
       <label for="Brand">Brand:</label>
-      <input type="text" class="Brands" placeholder="type brand name" required></input>
+      <input type="text" class="Brands" placeholder="type brand name" required></input><br><br>
       <label for="name">Color:</label>
-      <input type="text" class="Colors" placeholder="type color" required></input>
+      <input type="text" class="Colors" placeholder="type color" required></input><br><br>
       <label for="name">Size:</label>
-      <input type="number" class="Sizes" placeholder="type size" required></input>
+      <input type="number" class="Sizes" placeholder="type size" required></input><br><br>
+
       <label for="name">Price:</label>
-      <input type="number" class="Prices" placeholder="type a price" required></input>
+      <input type="number" class="Prices" placeholder="type a price" required></input><br><br>
       <label for="name">Quantity:</label>
       <input type="number" class="Quantity" placeholder="Add stock" required></input>
       <br><br>
-  </form>
-  <button id="addButton"> Add Stock</button>
-  <div class="message"></div>
-  <div class="Shoes">
-  </div>
+      <button id="addButton"> Add Stock</button>
+    </div>
+    <div class="message">
 
+    </div>
 </body>
 <script type="text/javascript" src="shoe.js"></script>
 

@@ -48,7 +48,7 @@ $(document).ready(function() {
     }
   })
 
-  $('.brandAndSize').on('click', function() {
+  $('.brandAndSize').on('change', function() {
     // alert('s')
     var display = document.querySelector('#display');
     var Selectbrands = document.querySelector('.brands').value;
@@ -62,7 +62,7 @@ $(document).ready(function() {
 
           // console.log(SizeWthBrand);
           if (SizeWthBrand.brandAndSizes.length <= 0) {
-            msg.innerHTML = 'Sorry, this shoe is out of stock';
+            display.innerHTML = 'Sorry, this shoe is out of stock';
           } else {
             display.innerHTML = table({
               shoe: SizeWthBrand.brandAndSizes
@@ -168,3 +168,9 @@ $('#allStock').on('click', function() {
     }
   })
 })
+
+function show() {
+  var shoe = document.querySelector('.Shoes')
+  shoe.style.display = "block"
+  // alert('none')
+}
