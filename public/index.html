@@ -1,77 +1,101 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <link rel="stylesheet" type="text/css" href="css/shoe.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   <title>Shoe Catalogue Api</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/shoe.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+  </script>
 </head>
-<h1> Shoe Catalogue Api</h1>
 
 <body>
-  <div class="brandAndSize">
-  <script class="dropDownTamplate" type="text/handlebars-x">
-    <option value="" disabled selected> select option </option>
-    {{#each shoeData}}
-    <option>{{this}}</option>
-    {{/each}}
-  </script>
-    Brand: <select class="brands"></select>
-    Size: <select class="sizes"></select>
-    <!-- Colors: <select class="colors"></select> -->
+  <div class="panel panel-primary text-center">
+    <h1> Shoe Catalogue Api</h1>
   </div>
-  <button id="allStock">All Stock</button>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+    <li><a href="#addStock" data-toggle="tab">Add Stock</a></li>
+  </ul>
 
-  <h2>Available stock</h2>
-  <script id="tableTamplate" type="text/handlebars-x">
-    <table style = 'width:40%' border = '2px'>
-      <tr>
-        <th>Brand</th>
-        <th>Color</th>
-        <th>Size</th>
-        <th>Price</th>
-        <th>In stock</th>
-        <th>Buy</th>
-      </tr>
-      {{#each shoe}}
-      {{#if quantity}}
-      <tr>
-        <td>{{brand}}</td>
-        <td>{{color}}</td>
-        <td>{{size}}</td>
-        <td>R{{price}}</td>
-        <td>{{quantity}}</td>
-        <td><button  id='{{_id}}'>Buy</button></td>
-      </tr>
-      {{/if}}
-      {{/each}}
-    </table>
-  </script>
-  <div id="display"></div>
-  </br>
-<button class="btn" onclick="show()">Update Stock</button>
-  <div class="Shoes">
-    <h3>Add Stock</h3>
-      <label for="Brand">Brand:</label>
-      <input type="text" class="Brands" placeholder="type brand name" required></input><br><br>
-      <label for="name">Color:</label>
-      <input type="text" class="Colors" placeholder="type color" required></input><br><br>
-      <label for="name">Size:</label>
-      <input type="number" class="Sizes" placeholder="type size" required></input><br><br>
+  <body>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane fade active in" id="home">
+            <div class="brandAndSize">
+              <script class="dropDownTamplate" type="text/handlebars-x">
+                <option value="" disabled selected> select option </option>
+                {{#each shoeData}}
+                <option>{{this}}</option>
+                {{/each}}
+              </script>
+              Brand: <select class="brands"></select> Size: <select class="sizes"></select>
+            </div>
+            <br>
+            <button id="allStock" class="btn btn-info text-center">All Stock</button>
 
-      <label for="name">Price:</label>
-      <input type="number" class="Prices" placeholder="type a price" required></input><br><br>
-      <label for="name">Quantity:</label>
-      <input type="number" class="Quantity" placeholder="Add stock" required></input>
-      <br><br>
-      <button id="addButton"> Add Stock</button>
+            <script id="tableTamplate" type="text/handlebars-x">
+              <h2>Available stock</h2>
+              <table style='width:40%' border='2px'>
+                <tr>
+                  <th>Brand</th>
+                  <th>Color</th>
+                  <th>Size</th>
+                  <th>Price</th>
+                  <th>In stock</th>
+                  <th>Buy</th>
+                </tr>
+                {{#each shoe}} {{#if quantity}}
+                <tr>
+                  <td>{{brand}}</td>
+                  <td>{{color}}</td>
+                  <td>{{size}}</td>
+                  <td>R{{price}}</td>
+                  <td>{{quantity}}</td>
+                  <td><button id='{{_id}}' class="btn btn-danger">Buy</button></td>
+                </tr>
+                {{/if}} {{/each}}
+              </table>
+            </script>
+            <div id="display"></div>
+            </br>
+          </div>
+          <div class="tab-pane fade" id="addStock">
+            <br>
+            <!-- <button class="btn" onclick="show()">Add Stock</button> -->
+            <div class="col-sm-4">
+              <div class="jumbotron">
+
+                <div class="Shoes">
+                  <h3 "panel panel-primary text-cente">Add Stock</h3>
+
+                  <label for="Brand">Brand:</label>
+                  <input type="text" class="Brands form-control" placeholder="type brand name" required></input>
+                  <label for="name">Color:</label>
+                  <input type="text" class="Colors form-control" placeholder="type color" required></input>
+                  <label for="name">Size:</label>
+                  <input type="number" class="Sizes form-control" placeholder="type size" required></input>
+                  <label for="name">Price:</label>
+                  <input type="number" class="Prices form-control" placeholder="type a price" required></input>
+                  <label for="name">Quantity:</label>
+                  <input type="number" class="Quantity form-control" placeholder="Add stock" required></input>
+                  <button id="addButton" class="btn btn-info"> Add Stock</button>
+                </div>
+                <div class="message">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="message">
-
-    </div>
-</body>
-<script type="text/javascript" src="shoe.js"></script>
+  </body>
+  <script type="text/javascript" src="shoe.js"></script>
 
 </html>

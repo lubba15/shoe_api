@@ -14,28 +14,36 @@ module.exports = function(models) {
 
   const addShoes = function(req, res, next) {
     var addShoes = req.body
-
     // console.log('Add ' + addShoes);
-    models.shoeStock.create({
+    models.shoeStock.findOneAndUpdate({
       brand: addShoes.brand,
       color: addShoes.color,
       price: addShoes.price,
       size: addShoes.size,
-      quantity: addShoes.quantity
+    }, {
+      $inc: {
+        quantity: addShoes.quantity
+      }
     }, function(err, newShoe) {
       if (err) {
         return next(err)
-      }
-      console.log(newShoe);
-      models.shoeStock.find({},
-        function(err, newShoe) {
-          if (err) {
-            return next(err)
-          }
-          res.send({
-            newShoe: newShoe
+      } else if (!newShoe) {
+        models.shoeStock.create({
+            brand: addShoes.brand,
+            color: addShoes.color,
+            price: addShoes.price,
+            size: addShoes.size,
+            quantity: addShoes.quantity
+          },
+          function(err, newShoe) {
+            if (err) {
+              return next(err)
+            }
           })
-        })
+      }
+      res.send({
+        newShoe: newShoe
+      })
     })
   }
 
@@ -44,7 +52,7 @@ module.exports = function(models) {
     models.shoeStock.findOne({
       _id: id
     }, function(err, results) {}).then(function(results) {
-      if (results.quantity <= 0) {
+      if (results.quantity <= 1) {
         results.remove();
         res.json({
           results: 'Out of stock'

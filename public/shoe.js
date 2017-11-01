@@ -3,10 +3,9 @@ var drop = Handlebars.compile(dropDown);
 var tamplate = document.querySelector('#tableTamplate').innerHTML;
 var table = Handlebars.compile(tamplate);
 
-var Shoes = document.querySelector('.Shoes');
 var display = document.querySelector('#display');
 var message = document.querySelector('.message');
-var msg = document.querySelector('.msg');
+
 var brandAndSize = document.querySelector('.brandAndSize');
 
 
@@ -49,7 +48,7 @@ $(document).ready(function() {
   })
 
   $('.brandAndSize').on('change', function() {
-    // alert('s')
+
     var display = document.querySelector('#display');
     var Selectbrands = document.querySelector('.brands').value;
     var Selectsizes = document.querySelector('.sizes').value;
@@ -59,8 +58,6 @@ $(document).ready(function() {
         url: '/api/shoes/brand/' + Selectbrands + '/size/' + Selectsizes,
         type: 'GET',
         success: function(SizeWthBrand) {
-
-          // console.log(SizeWthBrand);
           if (SizeWthBrand.brandAndSizes.length <= 0) {
             display.innerHTML = 'Sorry, this shoe is out of stock';
           } else {
@@ -70,8 +67,7 @@ $(document).ready(function() {
           }
         }
       })
-    } else
-    if (Selectsizes == "") {
+    } else if (Selectsizes == "") {
       $.ajax({
         url: '/api/shoes/brand/' + Selectbrands,
         type: 'GET',
@@ -82,19 +78,19 @@ $(document).ready(function() {
           })
         }
       })
-    } else
-    if (Selectbrands == "") {
+    } else if (Selectbrands == "") {
       $.ajax({
         url: '/api/shoes/size/' + Selectsizes,
         type: 'GET',
         success: function(size) {
-          // console.log(size);
           display.innerHTML = table({
             shoe: size.sizes
           })
         }
       })
     }
+    Selectbrands.value = ""
+    Selectsizes.value = ""
   })
   $('#addButton').on('click', function() {
     var Brand = document.querySelector('.Brands').value;
@@ -108,7 +104,7 @@ $(document).ready(function() {
       Colors.length == 0 ||
       price.length == 0 ||
       Instock.length == 0) {
-      message.innerHTML = "Nothing added on the text-box's, Enter your Options ";
+      message.innerHTML = "Please fill in the text-box's and add again.";
 
 
     } else {
@@ -134,12 +130,9 @@ $(document).ready(function() {
       })
       window.location.reload()
     }
-    // .fail(function(jqXHR) {
-    //    console.log(jqXHR);
-    // )
   })
-})
 
+})
 
 $('#display').on('click', function(e) {
   var _id = e.target.id;
@@ -169,8 +162,11 @@ $('#allStock').on('click', function() {
   })
 })
 
-function show() {
-  var shoe = document.querySelector('.Shoes')
-  shoe.style.display = "block"
-  // alert('none')
-}
+// function show() {
+//   var shoe = document.querySelector('.Shoes');
+//     if (shoe.style.display === "none") {
+//         shoe.style.display = "block";
+//     } else {
+//         shoe.style.display = "none";
+//     }
+// }

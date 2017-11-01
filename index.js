@@ -50,7 +50,6 @@ app.post("/api/shoes", shoeApiRoutes.addShoes);
 app.post("/api/shoes/sold/:id", shoeApiRoutes.soldStock);
 app.get("/api/shoes/brand/:brandname", shoeApiRoutes.brandname);
 app.get("/api/shoes/size/:size", shoeApiRoutes.size);
-// app.get("/api/shoes/color/:color", shoeApiRoutes.color);
 app.get("/api/shoes/brand/:brandname/size/:size", shoeApiRoutes.brandAndSize);
 
 var port = process.env.PORT || 6001;
