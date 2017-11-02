@@ -58,7 +58,7 @@ $(document).ready(function() {
         url: '/api/shoes/brand/' + Selectbrands + '/size/' + Selectsizes,
         type: 'GET',
         success: function(SizeWthBrand) {
-          if (SizeWthBrand.brandAndSizes.length <= 0) {
+          if (SizeWthBrand.brandAndSizes.length <= 1) {
             display.innerHTML = 'Sorry, this shoe is out of stock';
           } else {
             display.innerHTML = table({
