@@ -108,7 +108,7 @@ $(document).ready(function() {
 
 
     } else {
-      console.log('correct');
+      // console.log('correct');
       var newList = {
         brand: Brand,
         size: Size,
@@ -128,6 +128,7 @@ $(document).ready(function() {
           })
         }
       })
+      // newList.success()
       window.location.reload()
     }
   })
@@ -147,6 +148,7 @@ $('#display').on('click', function(e) {
     }
   })
   window.location.reload()
+  // newList.success();
 })
 
 $('#allStock').on('click', function() {
